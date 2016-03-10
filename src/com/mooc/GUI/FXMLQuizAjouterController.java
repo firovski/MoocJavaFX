@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mooc;
+package com.mooc.GUI;
 
 import com.mooc.DAO.QuizDAO;
 import com.mooc.entities.Quiz;
