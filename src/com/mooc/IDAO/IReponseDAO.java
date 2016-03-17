@@ -5,10 +5,21 @@
  */
 package com.mooc.IDAO;
 
+import com.mooc.entities.Reponse;
+import java.util.List;
+
 /**
  *
  * @author Firas
  */
 public interface IReponseDAO {
+    public void ajouter(Reponse q,int idquestion);
+    public Reponse getReponse(int id);
+    public void metreajour(Reponse t);
+    public void supprimer(Reponse id);
+    public Reponse rechercheid(int id);
+    public List<Reponse> recherchenom(String id);
+    public List<Reponse> recherchetype(String id);
+    public List<Reponse> afficherReponse();
     
 }

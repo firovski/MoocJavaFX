@@ -14,12 +14,12 @@ public class Question {
     private String questiontext;
     private String type;
     private int point;
-    private Quiz quiz;
+    private int quiz;
 
     public Question() {
     }
 
-    public Question(int ID, String questiontext, String type, int point, Quiz quiz) {
+    public Question(int ID, String questiontext, String type, int point, int quiz) {
         this.ID = ID;
         this.questiontext = questiontext;
         this.type = type;
@@ -59,11 +59,11 @@ public class Question {
         this.point = point;
     }
 
-    public Quiz getQuiz() {
+    public int getQuiz() {
         return quiz;
     }
 
-    public void setQuiz(Quiz quiz) {
+    public void setQuiz(int quiz) {
         this.quiz = quiz;
     }
 

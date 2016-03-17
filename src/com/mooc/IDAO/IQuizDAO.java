@@ -17,7 +17,7 @@ public interface IQuizDAO {
     public void metreajour(Quiz t);
     public void supprimer(Quiz id);
     public Quiz rechercheid(int id);
-    public List<Quiz> recherchenom(String id);
+    public Quiz recherchenom(String id);
     public List<Quiz> recherchetype(String id);
     public List<Quiz> afficherquiz();
     

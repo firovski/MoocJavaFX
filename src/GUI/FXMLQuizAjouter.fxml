@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.QuizAddController">
+   <children>
+      <Button fx:id="add" layoutX="190.0" layoutY="373.0" mnemonicParsing="false" onAction="#AjouterQuiz" text="Button" />
+      <TextField fx:id="quiznom" layoutX="346.0" layoutY="95.0" />
+      <TextField fx:id="quizdescription" layoutX="346.0" layoutY="138.0" />
+      <TextField fx:id="intro" layoutX="346.0" layoutY="176.0" />
+      <TextField fx:id="duree" layoutX="346.0" layoutY="290.0" />
+      <DatePicker fx:id="dateajout" layoutX="346.0" layoutY="216.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="cour" layoutX="346.0" layoutY="331.0" />
+      <Label layoutX="162.0" layoutY="99.0" text="Nom du quiz :" />
+      <Label layoutX="162.0" layoutY="142.0" text="Description :" />
+      <Label layoutX="162.0" layoutY="180.0" text="Introduction :" />
+      <Label layoutX="162.0" layoutY="220.0" text="Date d'ajout :" />
+      <Label layoutX="162.0" layoutY="255.0" text="Type :" />
+      <Label layoutX="162.0" layoutY="294.0" text="Duree :" />
+      <Label layoutX="162.0" layoutY="335.0" text="Id du cour" />
+      <ChoiceBox fx:id="type" layoutX="346.0" layoutY="251.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

@@ -38,7 +38,7 @@ public class QuizDAO implements IQuizDAO {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, q.getQuiznom());
             ps.setString(2, q.getQuizdescription());
-            ps.setString(3, q.getDateajout());
+            ps.setString(3,q.getDateajout());
             ps.setString(4, q.getIntro());
             ps.setString(5, q.getType());
             ps.setInt(6, q.getDuree());
@@ -153,18 +153,18 @@ public class QuizDAO implements IQuizDAO {
     }
 
     @Override
-    public List<Quiz> recherchenom(String id) {
-        List<Quiz> listquiz = new ArrayList<>();
+    public Quiz recherchenom(String id) {
 
         Quiz quiz = new Quiz();
         String requete = "select * from quiz where quiznom=?";
         try {
+            prepared = cnx.prepareStatement(requete);
             prepared.setString(1, id);
 
-            prepared = cnx.prepareStatement(requete);
 
             ResultSet resultat = prepared.executeQuery();
-            while (resultat.next()) {
+                      while (resultat.next()) {
+
                 quiz.setID(resultat.getInt(1));
                 quiz.setQuiznom(resultat.getString(2));
                 quiz.setQuizdescription(resultat.getString(3));
@@ -173,10 +173,9 @@ public class QuizDAO implements IQuizDAO {
                 quiz.setType(resultat.getString(6));
                 quiz.setDuree(resultat.getInt(7));
                 quiz.setCour(resultat.getInt(8));
-                listquiz.add(quiz);
 
-            }
-            return listquiz;
+                      }
+            return quiz;
 
         } catch (SQLException ex) {
             System.out.println("erreur lors de la recherche  " + ex.getMessage());

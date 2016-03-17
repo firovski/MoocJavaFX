@@ -5,11 +5,15 @@
  */
 package mooc;
 
+import insidefx.undecorator.Undecorator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -19,11 +23,23 @@ public class Mooc extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("FXMLAjouterQuiz.fxml"));
-        
-        Scene scene = new Scene(root);
-        
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXMLQuizlist.fxml"));
+
+        Undecorator undecorator = new Undecorator(stage, (Region) root);
+
+// Default theme
+        undecorator.getStylesheets().add("/skin/undecorator.css");
+
+        Scene scene = new Scene(undecorator);
+
+        stage.setScene(scene);
+        scene.setFill(Color.TRANSPARENT);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        // Set minimum size
+        stage.setMinWidth(480);
+        stage.setMinHeight(640);
+
+        stage.setTitle("Mooc");
         stage.setScene(scene);
         stage.show();
     }

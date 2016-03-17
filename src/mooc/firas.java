@@ -21,12 +21,13 @@ public class firas {
         Quiz q = new Quiz(30, "bbbbbbb", "aaa", "12/12/2012", "aaa", "aaa", 4, 2);
         QuizDAO qdqo = new QuizDAO();
         //qdqo.ajouter(q);
-        list=qdqo.recherchetype("Final");
+        //list=qdqo.recherchetype("Final");
+        //list=qdqo.afficherquiz();
         //list=qdqo.recherchenom("quiz22");
-        list.stream().forEach(e->System.out.println(e));
-        System.out.println(list.size());
+        //list.stream().forEach(e->System.out.println(e));
+        //System.out.println(list.size());
         //qdqo.supprimer(q);
-        Quiz q1=qdqo.rechercheid(9);
+        Quiz q1=qdqo.rechercheid(10);
         System.out.println(q1);
         
     }

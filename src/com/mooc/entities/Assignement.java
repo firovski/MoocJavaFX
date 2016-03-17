@@ -13,14 +13,14 @@ public class Assignement {
     
     private int ID;
     private int score;
-    private Badge badge;
-    private Quiz quiz;
-    private User user;
+    private int badge;
+    private int quiz;
+    private int user;
 
     public Assignement() {
     }
 
-    public Assignement(int ID, int score, Badge badge, Quiz quiz, User user) {
+    public Assignement(int ID, int score, int badge, int quiz, int user) {
         this.ID = ID;
         this.score = score;
         this.badge = badge;
@@ -44,27 +44,27 @@ public class Assignement {
         this.score = score;
     }
 
-    public Badge getBadge() {
+    public int getBadge() {
         return badge;
     }
 
-    public void setBadge(Badge badge) {
+    public void setBadge(int badge) {
         this.badge = badge;
     }
 
-    public Quiz getQuiz() {
+    public int getQuiz() {
         return quiz;
     }
 
-    public void setQuiz(Quiz quiz) {
+    public void setQuiz(int quiz) {
         this.quiz = quiz;
     }
 
-    public User getUser() {
+    public int getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(int user) {
         this.user = user;
     }
 

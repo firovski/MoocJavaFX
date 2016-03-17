@@ -15,12 +15,12 @@ public class Reponse {
     private String reponsetext;
     private String reponsecorrecttext;
     private boolean reponsecorrectradio;
-    private Question question;
+    private int question;
 
     public Reponse() {
     }
 
-    public Reponse(int ID, String reponsetext, String reponsecorrecttext, boolean reponsecorrectradio, Question question) {
+    public Reponse(int ID, String reponsetext, String reponsecorrecttext, boolean reponsecorrectradio, int question) {
         this.ID = ID;
         this.reponsetext = reponsetext;
         this.reponsecorrecttext = reponsecorrecttext;
@@ -60,11 +60,11 @@ public class Reponse {
         this.reponsecorrectradio = reponsecorrectradio;
     }
 
-    public Question getQuestion() {
+    public int getQuestion() {
         return question;
     }
 
-    public void setQuestion(Question question) {
+    public void setQuestion(int question) {
         this.question = question;
     }
 
