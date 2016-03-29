@@ -201,5 +201,31 @@ public class ReponseDAO implements IReponseDAO {
         }
     }
 
+    @Override
+    public List<Reponse> ListByQuestion(int id) {
+        Reponse quiz = new Reponse();
+        List<Reponse> listquiz = new ArrayList<>();
+
+        String requete = "select * from reponse where idquestion=?";
+        try {
+            prepared = cnx.prepareStatement(requete);
+            prepared.setInt(1, id);
+            ResultSet resultat = prepared.executeQuery();
+            while (resultat.next()) {
+                quiz.setID(resultat.getInt(1));
+                quiz.setReponsetext(resultat.getString(2));
+                quiz.setReponsecorrecttext(resultat.getString(3));
+                quiz.setReponsecorrectradio(resultat.getBoolean(4));
+                quiz.setQuestion(resultat.getInt(5));
+                listquiz.add(quiz);
+
+            }
+            return listquiz;
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la recherche  " + ex.getMessage());
+            return null;
+        }    }
+
 }
 

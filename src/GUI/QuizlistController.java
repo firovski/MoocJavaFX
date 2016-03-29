@@ -37,6 +37,8 @@ import javafx.stage.Stage;
  * @author Firas
  */
 public class QuizlistController implements Initializable {
+        public static int idquiz1;
+
 
     @FXML
     private ListView<String> listview;
@@ -112,6 +114,21 @@ public class QuizlistController implements Initializable {
         
             message.setText("Quiz Supprimer avec succes");
  
+     }
+     
+     @FXML
+     private void passerAction(ActionEvent event) throws IOException {
+         String x=listview.getSelectionModel().getSelectedItem();    
+        Quiz q =qd.recherchenom(x);
+         idquiz1=q.getID();
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLPasserQuizEntrainement.fxml"));
+        loader.load();
+        Parent p =loader.getRoot();
+        Stage stage=new Stage();
+        stage.setScene(new Scene(p));
+        stage.show();
      }
      
      @FXML

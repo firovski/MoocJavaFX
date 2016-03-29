@@ -25,8 +25,9 @@ import java.util.logging.Logger;
 public class QuestionDAO implements IQuestionDAO {
 
 
-    private Connection cnx;
+    private final Connection cnx;
     private PreparedStatement prepared;
+    public ReponseDAO rd= new ReponseDAO();
 
     public QuestionDAO() {
         cnx = new MyConnexion().connection();
@@ -57,7 +58,7 @@ public class QuestionDAO implements IQuestionDAO {
     @Override
     public List<Question> afficherQuestion() {
         List<Question> listquiz = new ArrayList<>();
-        String requete = "select * from question";
+        String requete = "select * from question where idquiz=23";
         try {
             Statement ps;
             ps = cnx.createStatement();
@@ -194,6 +195,33 @@ public class QuestionDAO implements IQuestionDAO {
 
         } catch (SQLException ex) {
             System.out.println("erreur lors de la recherche  " + ex.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public List<Question> ListByQuiz(int id) {
+        List<Question> listquiz = new ArrayList<>();
+        String requete = "select * from question where idquiz=?";
+        try {
+            prepared = cnx.prepareStatement(requete);
+            prepared.setString(1, Integer.toString(id));
+            ResultSet resultat = prepared.executeQuery();
+
+            while (resultat.next()) {
+                Question quiz = new Question();
+                quiz.setID(resultat.getInt(1));
+                quiz.setQuestiontext(resultat.getString(2));
+                quiz.setType(resultat.getString(3));
+                quiz.setPoint(resultat.getInt(4));
+                quiz.setQuiz(resultat.getInt(5));
+                quiz.setListreponse(rd.ListByQuestion(resultat.getInt(1)));
+                listquiz.add(quiz);
+            }
+            return listquiz;
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement des quiz " + ex.getMessage());
             return null;
         }
     }

@@ -21,5 +21,6 @@ public interface IQuestionDAO {
     public List<Question> recherchenom(String id);
     public List<Question> recherchetype(String id);
     public List<Question> afficherQuestion();
+    public List<Question> ListByQuiz(int id);
     
 }

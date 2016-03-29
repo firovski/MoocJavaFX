@@ -5,7 +5,8 @@
  */
 package com.mooc.entities;
 
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -22,6 +23,7 @@ public class Quiz {
     private String type;
     private int duree;
     private int cour;
+    private List<Question> listquestion;
 
     public Quiz() {
     }
@@ -36,6 +38,16 @@ public class Quiz {
         this.type = type;
         this.duree = duree;
         this.cour = cour;
+        this.listquestion= new ArrayList<>();
+
+    }
+
+    public List<Question> getListquestion() {
+        return listquestion;
+    }
+
+    public void setListquestion(List<Question> listquestion) {
+        this.listquestion = listquestion;
     }
     
     

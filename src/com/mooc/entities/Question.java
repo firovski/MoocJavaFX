@@ -5,6 +5,9 @@
  */
 package com.mooc.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Firas
@@ -15,6 +18,7 @@ public class Question {
     private String type;
     private int point;
     private int quiz;
+    private List<Reponse> listreponse;
 
     public Question() {
     }
@@ -25,6 +29,7 @@ public class Question {
         this.type = type;
         this.point = point;
         this.quiz = quiz;
+        this.listreponse= new ArrayList<>();
     }
 
     public int getID() {
@@ -57,6 +62,14 @@ public class Question {
 
     public void setPoint(int point) {
         this.point = point;
+    }
+
+    public List<Reponse> getListreponse() {
+        return listreponse;
+    }
+
+    public void setListreponse(List<Reponse> listreponse) {
+        this.listreponse = listreponse;
     }
 
     public int getQuiz() {

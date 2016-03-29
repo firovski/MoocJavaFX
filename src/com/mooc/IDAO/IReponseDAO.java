@@ -5,6 +5,7 @@
  */
 package com.mooc.IDAO;
 
+import com.mooc.entities.Question;
 import com.mooc.entities.Reponse;
 import java.util.List;
 
@@ -21,5 +22,7 @@ public interface IReponseDAO {
     public List<Reponse> recherchenom(String id);
     public List<Reponse> recherchetype(String id);
     public List<Reponse> afficherReponse();
+    public List<Reponse> ListByQuestion(int id);
+
     
 }

@@ -52,7 +52,30 @@ public class QuizDAO implements IQuizDAO {
 
     @Override
     public Quiz getquiz(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Quiz quiz = new Quiz();
+        String requete = "select * from quiz where id=?";
+        try {
+            prepared = cnx.prepareStatement(requete);
+            prepared.setInt(1, id);
+            ResultSet resultat;
+            resultat = prepared.executeQuery();
+
+            while (resultat.next()) {
+                quiz.setID(resultat.getInt(1));
+                quiz.setQuiznom(resultat.getString(2));
+                quiz.setQuizdescription(resultat.getString(3));
+                quiz.setDateajout(resultat.getString(4));
+                quiz.setIntro(resultat.getString(5));
+                quiz.setType(resultat.getString(6));
+                quiz.setDuree(resultat.getInt(7));
+                quiz.setCour(resultat.getInt(8));
+            }
+            return quiz;
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement des quiz " + ex.getMessage());
+            return null;
+        }
     }
 
     @Override
