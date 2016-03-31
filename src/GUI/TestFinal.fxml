@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FirasController">
+<AnchorPane id="AnchorPane" fx:id="anchorpane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TestFinalController">
    <children>
       <Text fx:id="t1" layoutX="67.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <GridPane fx:id="gp" layoutX="114.0" layoutY="108.0" prefHeight="184.0" prefWidth="452.0">
@@ -26,6 +26,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Button fx:id="btn" layoutX="313.0" layoutY="328.0" mnemonicParsing="false" onAction="#SuivantAction" text="suivant" />
+      <Button fx:id="btn" layoutX="313.0" layoutY="328.0" mnemonicParsing="false" onAction="#TerminerAction" text="suivant" />
    </children>
 </AnchorPane>

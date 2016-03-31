@@ -38,8 +38,8 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
     public static Quiz exam;
     public List<Question> qst = new ArrayList<>();
     public static Question qinst;
-    public static int total;
-    public static int firas1 = 0;
+    public static String total;
+    public static int firas1 = -1;
 
     @FXML
     private Text t1;
@@ -57,46 +57,23 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
         if (firas1 < ((exam.getListquestion().size()) - 2)) {
             firas1++;
             qinst = exam.getListquestion().get(firas1);
-                if (qinst.getType()=="Choix unique")
-                {
-            ((Node) event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("FXMLFiras.fxml"));
-            loader.load();
-            Parent p = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(p));
-            stage.show();
-                }
-                else if (qinst.getType()=="Choix multiple")
-                {
+               
                 ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("FXMLFiras.fxml"));
+            loader.setLocation(getClass().getResource("TestFinal.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
             stage.setScene(new Scene(p));
             stage.show();
-                }
-                else
-                {
-                ((Node) event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("FXMLFiras.fxml"));
-            loader.load();
-            Parent p = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(p));
-            stage.show();
-                }
+                
         } else {
             firas1++;
             qinst = exam.getListquestion().get(firas1);
 
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("FXMLFiras_1.fxml"));
+            loader.setLocation(getClass().getResource("TestFinal.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
