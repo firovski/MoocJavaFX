@@ -7,6 +7,7 @@ package com.mooc.DAO;
 
 import com.mooc.IDAO.IReponseDAO;
 import com.mooc.Util.MyConnexion;
+import com.mooc.entities.Question;
 import com.mooc.entities.Reponse;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -226,5 +227,12 @@ public class ReponseDAO implements IReponseDAO {
             return null;
         }
 }
+    
+    
+
+    
+    
+    
+    
 }
 

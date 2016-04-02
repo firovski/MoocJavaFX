@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package GUI.Quiz.ChoixMultiple;
 
-import static GUI.QuizlistController.idquiz1;
-import com.mooc.DAO.QuestionDAO;
-import com.mooc.DAO.QuizDAO;
-import com.mooc.entities.Question;
-import com.mooc.entities.Quiz;
+import static GUI.FXMLPasserQuizEntrainementController.exam;
+import static GUI.FXMLPasserQuizEntrainementController.firas1;
+import static GUI.FXMLPasserQuizEntrainementController.qinst;
+import static GUI.FXMLPasserQuizEntrainementController.total;
 import com.mooc.entities.Reponse;
 import java.io.IOException;
 import java.net.URL;
@@ -23,8 +22,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.text.Text;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
@@ -32,42 +32,124 @@ import javafx.stage.Stage;
  *
  * @author Firas
  */
-public class FXMLPasserQuizEntrainementController implements Initializable {
-
-    QuizDAO qd = new QuizDAO();
-    QuestionDAO questd = new QuestionDAO();
-    public static Quiz exam;
-    public List<Question> qst = new ArrayList<>();
-    public static Question qinst;
-    public static int total=0;
-    public static int firas1 = -1;
+public class FXMLChoixMultiple5Controller implements Initializable {
 
     @FXML
-    private Text t1;
-
+    private Label nomquiz ;
     @FXML
-    private Text t2;
-
+    private CheckBox chk1;
     @FXML
-    private Text t3;
+    private CheckBox chk2;
     @FXML
-    private Button btn;
-
+    private CheckBox chk3;
     @FXML
-    private void CommancerAction(ActionEvent event) throws IOException {
-        if (firas1 < ((exam.getListquestion().size()) - 2)) {
-            firas1++;
-            qinst = exam.getListquestion().get(firas1);
-                List<Reponse> listrep = new ArrayList<>();
+    private CheckBox chk4;
+    @FXML
+    private CheckBox chk5;
+    @FXML
+    private GridPane gp;
+    
+    
+    List<Reponse> listrep = new ArrayList<>();
+    int scorerep=0;
+    boolean test;
+    
+    
+    public void suivant(ActionEvent event) throws IOException
+    {
+        test=false;
+        scorerep=0;
+        listrep = qinst.getListreponse();
+        ///chk1
+        if(chk1.isSelected())
+        {
+        if(listrep.get(0).isReponsecorrectradio())
+        {
+            test=true;
+        }
+        else
+        {
+            test=false;
 
-            listrep = qinst.getListreponse();
+        }
+        }
+        ///chk2
+        if(chk2.isSelected())
+        {
+        if(listrep.get(1).isReponsecorrectradio())
+        {
+            test=true;
+
+        }
+        else
+        {
+            test=false;
+
+        }
+        }
+        //chk3
+        if(chk3.isSelected())
+        {
+        if(listrep.get(2).isReponsecorrectradio())
+        {
+            test=true;
+        }
+        else
+        {
+        test=false;
+
+        }
+        }
+        if (test==true){
+            scorerep=qinst.getPoint();
+        }
+        ////chk4
+        if(chk4.isSelected())
+        {
+        if(listrep.get(3).isReponsecorrectradio())
+        {
+            test=true;
+        }
+        else
+        {
+        test=false;
+
+        }
+        }
+        if (test==true){
+            scorerep=qinst.getPoint();
+        }
+        ////chk5
+        if(chk5.isSelected())
+        {
+        if(listrep.get(4).isReponsecorrectradio())
+        {
+            test=true;
+        }
+        else
+        {
+        test=false;
+
+        }
+        }
+        if (test==true){
+            scorerep=qinst.getPoint();
+        }
+                total=total+scorerep;
+
+        /// fin des condition de recuperation 
+        
+        firas1++;
+        qinst = exam.getListquestion().get(firas1);
+        listrep = qinst.getListreponse();
+        listrep = qinst.getListreponse();
         if (qinst.getType().equals("Choix unique"))
         {
         if(listrep.size()==1)
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixUnique/FXMLChoixUnique1.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ChoixUnique/FXMLChoixUnique1.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -78,7 +160,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixUnique/FXMLChoixUnique2.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ChoixUnique/FXMLChoixUnique2.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -89,7 +171,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixUnique/FXMLChoixUnique3.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ChoixUnique/FXMLChoixUnique3.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -100,7 +182,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixUnique/FXMLChoixUnique4.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ChoixUnique/FXMLChoixUnique4.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -111,7 +193,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixUnique/FXMLChoixUnique5.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ChoixUnique/FXMLChoixUnique5.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -126,7 +208,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixMultiple/FXMLChoixMultiple1.fxml"));
+            loader.setLocation(getClass().getResource("FXMLChoixMultiple1.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -137,7 +219,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixMultiple/FXMLChoixMultiple2.fxml"));
+            loader.setLocation(getClass().getResource("FXMLChoixMultiple2.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -148,7 +230,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixMultiple/FXMLChoixMultiple3.fxml"));
+            loader.setLocation(getClass().getResource("FXMLChoixMultiple3.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -159,7 +241,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixMultiple/FXMLChoixMultiple4.fxml"));
+            loader.setLocation(getClass().getResource("FXMLChoixMultiple4.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -170,7 +252,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ChoixMultiple/FXMLChoixMultiple5.fxml"));
+            loader.setLocation(getClass().getResource("FXMLChoixMultiple5.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -185,7 +267,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ReponseText/FXMLReponseText1.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ReponseText/FXMLReponseText1.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -196,7 +278,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ReponseText/FXMLReponseText2.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ReponseText/FXMLReponseText2.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -207,7 +289,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ReponseText/FXMLReponseText3.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ReponseText/FXMLReponseText3.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -218,7 +300,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ReponseText/FXMLReponseText4.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ReponseText/FXMLReponseText4.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -229,7 +311,7 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
                 {
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Quiz/ReponseText/FXMLReponseText5.fxml"));
+            loader.setLocation(getClass().getResource("/GUI/Quiz/ReponseText/FXMLReponseText5.fxml"));
             loader.load();
             Parent p = loader.getRoot();
             Stage stage = new Stage();
@@ -237,38 +319,28 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
             stage.show();
                 }
         }
+               
                 
-        } else {
-            firas1++;
-            qinst = exam.getListquestion().get(firas1);
-
-            ((Node) event.getSource()).getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("FXMLFiras1.fxml"));
-            loader.load();
-            Parent p = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(p));
-            stage.show();
-        }
-
     }
-
-    /**
-     * Initializes the controller class.
-     *
-     * @param url
-     * @param rb
-     */
+    
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        exam = qd.getquiz(idquiz1);
-        exam.setListquestion(questd.ListByQuiz(idquiz1));
-        t1.setText(exam.getQuiznom());
-        t2.setText(exam.getQuizdescription());
-        t3.setText(exam.getIntro());
+    public void initialize(URL url, ResourceBundle rb)
+    {
+        nomquiz.setText(qinst.getQuestiontext());
+        listrep = qinst.getListreponse();
 
-        // TODO
-    }
-
+        
+        chk1.setText(listrep.get(0).getReponsetext());
+        chk2.setText(listrep.get(1).getReponsetext());
+        chk3.setText(listrep.get(2).getReponsetext());
+        chk4.setText(listrep.get(3).getReponsetext());
+        chk5.setText(listrep.get(4).getReponsetext());
+    }    
+    
+    
+    
 }
+
+    
+

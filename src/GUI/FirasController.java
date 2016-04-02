@@ -44,17 +44,18 @@ public class FirasController implements Initializable {
     private Button btn;
     @FXML
     private GridPane gp;
-    
+    @FXML
+    RadioButton r1;
+
     final ToggleGroup group = new ToggleGroup();
 
 
     @FXML
     private void SuivantAction(ActionEvent event) throws IOException {
         if (firas1 < ((exam.getListquestion().size()) - 2)) {
-            
+           
                 firas1++;
-                        qinst = exam.getListquestion().get(firas1);
-
+                        qinst = exam.getListquestion().get(firas1);             
             ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("FXMLFiras.fxml"));
@@ -93,8 +94,8 @@ public class FirasController implements Initializable {
         for (int i=0;i<listrep.size();i++)
         {  
             rep =listrep.get(i);
-            RadioButton r1= new RadioButton(rep.getReponsetext());
-            r1.setToggleGroup(group);
+//            r1.setText(rep.getReponsetext());
+  //          r1.setToggleGroup(group);
             gp.add(r1,0,i);
         }
             }
@@ -106,6 +107,7 @@ public class FirasController implements Initializable {
         {  
             rep =listrep.get(i);
             CheckBox c= new CheckBox(rep.getReponsetext());
+           
             c.setId("chk"+i);
             gp.add(c,0,i);
         }

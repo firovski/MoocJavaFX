@@ -44,29 +44,29 @@ public class TestFinalController implements Initializable  {
     @FXML
     private Button btn;
     @FXML
-    private GridPane gp;
-    @FXML
-    private TextField tx1;
-    @FXML
-    private TextField tx2;
-    @FXML
-    private TextField tx3;
-    @FXML
-    private TextField tx4;
-    @FXML
-    private TextField tx5;
-    @FXML
-    private CheckBox c1;
-    @FXML
-    private CheckBox c2;
-    @FXML
-    private CheckBox c3;
-    @FXML
-    private CheckBox c4;
-    @FXML
-    private CheckBox c5;
+    public GridPane gp;
+    
+    public TextField tx1;
+    
+    public TextField tx2;
+    
+    public TextField tx3;
+    
+    public TextField tx4;
+    
+    public TextField tx5;
+    
+    public CheckBox c1;
+    
+    public CheckBox c2;
+    
+    public CheckBox c3;
+    
+    public CheckBox c4;
+    
+    public CheckBox c5;
 
-        private RadioButton r1;
+        public RadioButton r1;
 
         final ToggleGroup group = new ToggleGroup();
 
@@ -133,25 +133,25 @@ public class TestFinalController implements Initializable  {
         
         else if (qinst.getType().equals("Choix multiple")) 
         {
-        switch (listrep.size()) {
+        /*switch (listrep.size()) {
             case 1:  
-            {
+            {*/
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(c1, 1, 0);
-                     break;
+            gp.add(c1, 1, 0);
+               /*      break;
             }
             case 2: 
             {
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(c1, 1, 0);
+            gp.add(c1, 1, 0);
             rep =listrep.get(1);
             Label l2 = new Label(rep.getReponsetext());
             gp.add(l2,0,1);
-            //gp.add(c2, 1, 1);
+            gp.add(c2, 1, 1);
                      break;
             }
             case 3: 
@@ -159,15 +159,15 @@ public class TestFinalController implements Initializable  {
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(c1, 1, 0);
+            gp.add(c1, 1, 0);
             rep =listrep.get(1);
             Label l2 = new Label(rep.getReponsetext());
             gp.add(l2,0,1);
-            //gp.add(c2, 1, 1);
+            gp.add(c2, 1, 1);
             rep =listrep.get(2);
             Label l3 = new Label(rep.getReponsetext());
             gp.add(l3,0,2);
-            //gp.add(c3, 1, 2);
+            gp.add(c3, 1, 2);
                      break;
             }
             case 4:  
@@ -175,19 +175,19 @@ public class TestFinalController implements Initializable  {
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(c1, 1, 0);
+            gp.add(c1, 1, 0);
             rep =listrep.get(1);
             Label l2 = new Label(rep.getReponsetext());
             gp.add(l2,0,1);
-            //gp.add(c2, 1, 1);
+            gp.add(c2, 1, 1);
             rep =listrep.get(2);
             Label l3 = new Label(rep.getReponsetext());
             gp.add(l3,0,2);
-            //gp.add(c3, 1, 2);
+            gp.add(c3, 1, 2);
             rep =listrep.get(3);
             Label l4 = new Label(rep.getReponsetext());
             gp.add(l4,0,3);
-            //gp.add(c4, 1, 3);
+            gp.add(c4, 1, 3);
                      break;
             }
             default: 
@@ -195,23 +195,23 @@ public class TestFinalController implements Initializable  {
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(c1, 1, 0);
+            gp.add(c1, 1, 0);
             rep =listrep.get(1);
             Label l2 = new Label(rep.getReponsetext());
             gp.add(l2,0,1);
-            //gp.add(c2, 1, 1);
+            gp.add(c2, 1, 1);
             rep =listrep.get(2);
             Label l3 = new Label(rep.getReponsetext());
             gp.add(l3,0,2);
-            //gp.add(c3, 1, 2);
+            gp.add(c3, 1, 2);
             rep =listrep.get(3);
             Label l4 = new Label(rep.getReponsetext());
             gp.add(l4,0,3);
-            //gp.add(c4, 1, 3);
+            gp.add(c4, 1, 3);
             rep =listrep.get(3);
             Label l5 = new Label(rep.getReponsetext());
             gp.add(l5,0,4);
-            //gp.add(c5, 1, 4);
+            gp.add(c5, 1, 4);
                 break;
             }
             }
@@ -226,7 +226,7 @@ public class TestFinalController implements Initializable  {
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(c1, 1, 0);
+            gp.add(c1, 1, 0);
                      break;
             }
             case 2: 
@@ -234,11 +234,11 @@ public class TestFinalController implements Initializable  {
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(c1, 1, 0);
+            gp.add(c1, 1, 0);
             rep =listrep.get(1);
             Label l2 = new Label(rep.getReponsetext());
             gp.add(l2,0,1);
-            //gp.add(c2, 1, 1);
+            gp.add(c2, 1, 1);
                      break;
             }
             case 3: 
@@ -246,15 +246,15 @@ public class TestFinalController implements Initializable  {
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(c1, 1, 0);
+            gp.add(c1, 1, 0);
             rep =listrep.get(1);
             Label l2 = new Label(rep.getReponsetext());
             gp.add(l2,0,1);
-            //gp.add(c2, 1, 1);
+            gp.add(c2, 1, 1);
             rep =listrep.get(2);
             Label l3 = new Label(rep.getReponsetext());
             gp.add(l3,0,2);
-            //gp.add(c3, 1, 2);
+            gp.add(c3, 1, 2);
                      break;
             }
             case 4:  
@@ -262,19 +262,19 @@ public class TestFinalController implements Initializable  {
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(c1, 1, 0);
+            gp.add(c1, 1, 0);
             rep =listrep.get(1);
             Label l2 = new Label(rep.getReponsetext());
             gp.add(l2,0,1);
-            //gp.add(c2, 1, 1);
+            gp.add(c2, 1, 1);
             rep =listrep.get(2);
             Label l3 = new Label(rep.getReponsetext());
             gp.add(l3,0,2);
-            //gp.add(c3, 1, 2);
+            gp.add(c3, 1, 2);
             rep =listrep.get(3);
             Label l4 = new Label(rep.getReponsetext());
             gp.add(l4,0,3);
-            //gp.add(c4, 1, 3);
+            gp.add(c4, 1, 3);
                      break;
             }
             default: 
@@ -282,30 +282,31 @@ public class TestFinalController implements Initializable  {
             rep =listrep.get(0);
             Label l1 = new Label(rep.getReponsetext());
             gp.add(l1,0,0);
-            //gp.add(tx1, 1, 0);
+            gp.add(tx1, 1, 0);
             rep =listrep.get(1);
             Label l2 = new Label(rep.getReponsetext());
             gp.add(l2,0,1);
-            //gp.add(tx2, 1, 1);
+            gp.add(tx2, 1, 1);
             rep =listrep.get(2);
             Label l3 = new Label(rep.getReponsetext());
             gp.add(l3,0,2);
-            //gp.add(tx3, 1, 2);
+            gp.add(tx3, 1, 2);
             rep =listrep.get(3);
             Label l4 = new Label(rep.getReponsetext());
             gp.add(l4,0,3);
-            //gp.add(tx4, 1, 3);
+            gp.add(tx4, 1, 3);
             rep =listrep.get(3);
             Label l5 = new Label(rep.getReponsetext());
             gp.add(l5,0,4);
-            //gp.add(tx5, 1, 4);
+            gp.add(tx5, 1, 4);
                 break;
             }
             }
             
            
-        }
+        }*/
     }
     
+}
 }
 
