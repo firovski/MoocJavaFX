@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import static GUI.FXMLPasserQuizEntrainementController.timeline;
 import static GUI.QuizlistController.idquiz1;
 import com.mooc.DAO.QuestionDAO;
 import com.mooc.DAO.QuizDAO;
@@ -16,6 +17,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import static java.util.concurrent.ThreadLocalRandom.current;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,8 +32,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -40,8 +51,14 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
     public List<Question> qst = new ArrayList<>();
     public static Question qinst;
     public static int total=0;
+    public static int totalpoint=0;
     public static int firas1 = -1;
 
+    /**
+     *
+     */
+    public static Timeline timeline;
+                
     @FXML
     private Text t1;
 
@@ -56,6 +73,28 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
     @FXML
     private void CommancerAction(ActionEvent event) throws IOException {
         if (firas1 < ((exam.getListquestion().size()) - 2)) {
+            if (exam.getType().equals("Final")){
+            timeline = new Timeline(new KeyFrame(
+                        Duration.millis(exam.getDuree()*60000),
+                        ae -> {
+                            try {
+                                doSomething(event);
+                            } catch (IOException ex) {
+                                Logger.getLogger(FXMLPasserQuizEntrainementController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
+                        }));
+          
+    timeline.play();
+            }
+            for(int i=0;i<exam.getListquestion().size();i++)
+            {
+                totalpoint=totalpoint+exam.getListquestion().get(i).getPoint();
+            }
+            
+            
+            
+            
             firas1++;
             qinst = exam.getListquestion().get(firas1);
                 List<Reponse> listrep = new ArrayList<>();
@@ -252,6 +291,23 @@ public class FXMLPasserQuizEntrainementController implements Initializable {
             stage.show();
         }
 
+    }
+    /**
+     *
+     * @param event
+     * @return
+     * @throws java.io.IOException
+     */
+    public KeyFrame doSomething(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/GUI/FXMLResultat.fxml"));
+            loader.load();
+            Parent p = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(p));
+            stage.show(); 
+            return null;
     }
 
     /**

@@ -86,6 +86,19 @@ public class FXMLChoixUnique4Controller implements Initializable {
         
         /// fin des condition de recuperation 
         
+        if (exam.getListquestion().size()-1==firas1)
+        {
+           ((Node) event.getSource()).getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/GUI/FXMLResultat.fxml"));
+            loader.load();
+            Parent p = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(p));
+            stage.show(); 
+        }
+        else
+        {
         firas1++;
         qinst = exam.getListquestion().get(firas1);
         listrep = qinst.getListreponse();
@@ -265,7 +278,7 @@ public class FXMLChoixUnique4Controller implements Initializable {
             stage.show();
                 }
         }
-               
+    }       
                 
     }
     
